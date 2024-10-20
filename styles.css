@@ -1,11 +1,21 @@
 body {
-    background-image: url('images/Hogwarts-logo.jpg');
+    background-image: url('images/hogwarts-logo.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
+    background-color: #f0f0f0;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background-color: rgba(255, 255, 255, 0.9);
-    background-blend-mode: lighten;
+    z-index: -1;
 }
 
 .house-logo {
@@ -17,4 +27,89 @@ body {
 
 #sorting-result {
     text-align: center;
+}
+
+.card {
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 100%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-title {
+    font-weight: bold;
+    color: #000; /* Changed from #333 to black for better contrast */
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5); /* Add a subtle white text shadow */
+}
+
+.card-text {
+    color: #222; /* Changed from #555 to a darker shade */
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5); /* Add a subtle white text shadow */
+}
+
+.expel-btn {
+    margin-top: 10px;
+    align-self: flex-start;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add a subtle shadow to the button */
+}
+
+.house-crest {
+    max-width: 100px;
+    max-height: 100px;
+    object-fit: contain;
+    padding: 10px;
+}
+
+#sort-button, #submit-name {
+    font-size: 1.2rem;
+    padding: 10px 20px;
+}
+
+#selected-house {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+#student-name {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+#sorting-controls {
+    margin-bottom: 20px;
+}
+
+#sorting-controls button {
+    transition: all 0.3s ease;
+}
+
+#sorting-controls button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+@media (max-width: 767px) {
+    .card .row {
+        flex-direction: column;
+    }
+    
+    .card .col-md-4 {
+        text-align: center;
+        padding: 1rem;
+    }
+    
+    .card .col-md-4 img {
+        max-width: 100px;
+        margin: 0 auto;
+    }
 }
