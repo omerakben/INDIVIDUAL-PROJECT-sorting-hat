@@ -1,3 +1,4 @@
+/* Set the background image and general body styles */
 body {
     background-image: url('images/hogwarts-logo.png');
     background-size: cover;
@@ -7,6 +8,7 @@ body {
     background-color: #f0f0f0;
 }
 
+/* Create a semi-transparent overlay for better text readability */
 body::before {
     content: '';
     position: fixed;
@@ -15,9 +17,10 @@ body::before {
     right: 0;
     bottom: 0;
     background-color: rgba(255, 255, 255, 0.9);
-    z-index: -1;
+    z-index: -1; /* The overlay is behind other elements */
 }
 
+/* Style for house logos */
 .house-logo {
     max-width: 200px;
     margin: 20px auto;
@@ -25,10 +28,12 @@ body::before {
     filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.3)); /* Adds a subtle shadow */
 }
 
+/* Center align sorting result */
 #sorting-result {
     text-align: center;
 }
 
+/* Styles for student cards */
 .card {
     margin-bottom: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -36,27 +41,32 @@ body::before {
     transition: transform 0.3s ease-in-out;
 }
 
+/* Hover effect for cards */
 .card:hover {
     transform: translateY(-5px);
 }
 
+/* Style for card titles */
 .card-title {
     font-weight: bold;
-    color: #000; /* Changed from #333 to black for better contrast */
-    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5); /* Add a subtle white text shadow */
+    color: #000;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
 }
 
+/* Style for card text */
 .card-text {
-    color: #222; /* Changed from #555 to a darker shade */
-    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5); /* Add a subtle white text shadow */
+    color: #222;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
 }
 
+/* Style for expel button */
 .expel-btn {
     margin-top: 10px;
     align-self: flex-start;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add a subtle shadow to the button */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+/* Style for house crests */
 .house-crest {
     max-width: 100px;
     max-height: 100px;
@@ -64,21 +74,25 @@ body::before {
     padding: 10px;
 }
 
+/* Styles for sorting buttons */
 #sort-button, #submit-name {
     font-size: 1.2rem;
     padding: 10px 20px;
 }
 
+/* Style for selected house text */
 #selected-house {
     font-weight: bold;
     font-size: 1.5rem;
 }
 
+/* Style for student name input */
 #student-name {
     max-width: 300px;
     margin: 0 auto;
 }
 
+/* Styles for sorting controls */
 #sorting-controls {
     margin-bottom: 20px;
 }
@@ -92,12 +106,14 @@ body::before {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Layout for card body */
 .card-body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
+/* Responsive design for smaller screens */
 @media (max-width: 767px) {
     .card .row {
         flex-direction: column;
@@ -112,4 +128,37 @@ body::before {
         max-width: 100px;
         margin: 0 auto;
     }
+}
+
+/* Styles for Voldemort's Army theme */
+body.voldemort-theme {
+    background-image: url('images/voldemort-army-logo.png');
+}
+
+#voldemort-army-container .card {
+    background-color: rgba(0, 0, 0, 0.7) !important;
+    color: #fff;
+}
+
+#voldemort-army-container .card-title,
+#voldemort-army-container .card-text {
+    color: #fff;
+    text-shadow: none;
+}
+
+#voldemort-army-container .recruit-btn {
+    background-color: #2c3e50;
+    border-color: #2c3e50;
+}
+
+#voldemort-army-container .recruit-btn:hover {
+    background-color: #34495e;
+    border-color: #34495e;
+}
+
+/* Style for hint text */
+.house-hint {
+    font-style: italic;
+    font-size: 0.9em;
+    color: #666;
 }

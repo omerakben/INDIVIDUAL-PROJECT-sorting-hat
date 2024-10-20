@@ -11,4 +11,13 @@ const initialStudents = [
     { name: "Hannah Abbott", house: "Hufflepuff" }
 ];
 
-export default initialStudents;
+const initialVoldemortArmy = [
+    { name: "Bellatrix Lestrange", house: "Slytherin" },
+    { name: "Lucius Malfoy", house: "Slytherin" },
+    { name: "Peter Pettigrew", house: "Gryffindor" },
+    { name: "Barty Crouch Jr.", house: "Slytherin" },
+    { name: "Antonin Dolohov", house: "Slytherin" }
+];
+
+// Export the initial students and Voldemort's army arrays for use in other modules
+export { initialStudents, initialVoldemortArmy };

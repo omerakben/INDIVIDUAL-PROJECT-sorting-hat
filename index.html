@@ -4,71 +4,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sorting Hat</title>
+    <!-- Link to custom CSS file -->
     <link rel="stylesheet" href="styles.css">
+    <!-- Link to Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
+    <!-- Welcome message and introduction -->
     <div id="greeting" class="container mt-5">
         <h1 class="text-center">Welcome to Hogwarts School of Witchcraft and Wizardry!</h1>
-        <p>Greetings, young witch or wizard! As you step through the grand doors of Hogwarts, it's time for one of the most important moments of your journey - your house selection! Here, we bring the legendary Hogwarts Sorting Hat to life, just as it has done for centuries.</p>
-        <p>The Sorting Hat will place you into one of the four renowned Hogwarts houses:</p>
+        <p>Greetings, young witch or wizard! As you step through the grand doors of Hogwarts, it's time for one of the most important moments of your journey; your house sorting ceremony! Here, we bring the legendary Sorting Hat to life, just as it has done for centuries at Hogwarts.</p>
+        <p>The Sorting Hat will place you into one of the four noble Hogwarts houses:</p>
         <ul>
-            <li><strong>Gryffindor</strong>, where bravery and courage shine.</li>
-            <li><strong>Hufflepuff</strong>, where loyalty and hard work are celebrated.</li>
-            <li><strong>Ravenclaw</strong>, where wisdom and knowledge guide the way.</li>
-            <li><strong>Slytherin</strong>, where ambition and cunning lead to greatness.</li>
+            <li><strong>Gryffindor</strong>, where dwell the brave at heart.</li>
+            <li><strong>Hufflepuff</strong>, where loyalty, patience, and hard work are valued.</li>
+            <li><strong>Ravenclaw</strong>, where those of wit and learning always find their kind.</li>
+            <li><strong>Slytherin</strong>, where those with ambition and resourcefulness will thrive.</li>
         </ul>
     </div>
 
+    <!-- Name input form -->
     <div id="name-input" class="container mt-5">
         <form id="name-form">
             <div class="mb-3">
-                <label for="name" class="form-label">What's your name, student?</label>
+                <label for="name" class="form-label">What's your name :</label>
                 <input type="text" class="form-control" id="name" placeholder="First, tell us your name, young witch or wizard" required>
             </div>
-            <button type="submit" class="btn btn-primary">Continue</button>
+            <button type="submit" class="btn btn-primary">Let the Sorting Begin!</button>
         </form>
     </div>
 
+    <!-- Sorting options (Quiz or Random) -->
     <div id="sorting-options" class="container mt-5" style="display: none;">
         <h2 class="text-center mb-4">How would you like to be sorted, <span id="student-name"></span>?</h2>
         <div class="text-center">
             <button id="quiz-option" class="btn btn-primary me-2">Take the Sorting Quiz</button>
-            <button id="random-option" class="btn btn-secondary">Get Sorted Randomly</button>
+            <button id="random-option" class="btn btn-secondary">Let the Hat Decide</button>
         </div>
     </div>
 
+    <!-- Sorting quiz form -->
     <div id="sorting-form" class="container mt-5" style="display: none;">
         <form id="sorting-quiz">
             <div id="quiz-questions">
+                <!-- Question 1 -->
                 <div class="mb-3">
-                    <label class="form-label">How do you react when faced with a challenge?</label>
+                    <label class="form-label">How do you react when faced with a difficult situation?</label>
                     <select class="form-select" id="challenge-reaction" required>
                         <option value="">Choose your response...</option>
-                        <option value="gryffindor">Face it head-on with courage</option>
-                        <option value="hufflepuff">Work hard to overcome it</option>
-                        <option value="ravenclaw">Analyze and find the best solution</option>
-                        <option value="slytherin">Find a clever way around it</option>
+                        <option value="gryffindor">Face it head-on with bravery</option>
+                        <option value="hufflepuff">Work hard and stay loyal to your cause</option>
+                        <option value="ravenclaw">Think critically and find the smartest solution</option>
+                        <option value="slytherin">Use cunning to find the best way forward</option>
                     </select>
                 </div>
+                <!-- Question 2 -->
                 <div class="mb-3">
-                    <label class="form-label">Which value is most important to you?</label>
+                    <label class="form-label">Which value resonates most with you?</label>
                     <select class="form-select" id="important-value" required>
                         <option value="">Select a value...</option>
-                        <option value="gryffindor">Bravery</option>
-                        <option value="hufflepuff">Loyalty</option>
-                        <option value="ravenclaw">Wisdom</option>
+                        <option value="gryffindor">Courage</option>
+                        <option value="hufflepuff">Dedication</option>
+                        <option value="ravenclaw">Intelligence</option>
                         <option value="slytherin">Ambition</option>
                     </select>
                 </div>
+                <!-- Question 3 -->
                 <div class="mb-3">
-                    <label class="form-label">In a group project, what role do you usually take?</label>
+                    <label class="form-label">In a team, what role do you naturally take?</label>
                     <select class="form-select" id="group-role" required>
                         <option value="">Choose your role...</option>
-                        <option value="gryffindor">The leader who takes charge</option>
-                        <option value="hufflepuff">The team player who ensures everyone is included</option>
-                        <option value="ravenclaw">The researcher who gathers information</option>
-                        <option value="slytherin">The strategist who plans for success</option>
+                        <option value="gryffindor">The bold leader</option>
+                        <option value="hufflepuff">The supportive teammate</option>
+                        <option value="ravenclaw">The strategist and planner</option>
+                        <option value="slytherin">The mastermind behind the scenes</option>
                     </select>
                 </div>
             </div>
@@ -76,22 +85,53 @@
         </form>
     </div>
 
+    <!-- Sorting result display -->
     <div id="sorting-result" class="container mt-5" style="display: none;">
-        <p id="sorting-contemplation" class="fst-italic text-center"></p>
+        <div id="sorting-contemplation" class="fst-italic text-center"></div>
         <h3 id="final-decision" class="text-center"></h3>
     </div>
 
+    <!-- Sorting controls (Sort by Name, Sort by House, Sort Another Student) -->
     <div id="sorting-controls" class="container mt-5" style="display: none;">
-        <h2 class="text-center mb-4">Hogwarts Students</h2>
+        <h2 class="text-center mb-4"></h2>
         <div class="text-center mb-3">
-            <button id="sort-by-name" class="btn btn-secondary me-2">Sort by Name</button>
-            <button id="sort-by-house" class="btn btn-secondary">Sort by House</button>
+            <button id="sort-by-name" class="btn btn-secondary me-2">Order by Name</button>
+            <button id="sort-by-house" class="btn btn-secondary me-2">Order by House</button>
+            <button id="sort-another-student" class="btn btn-primary">Sorting Ceremony!</button>
         </div>
     </div>
 
+    <!-- Display toggle buttons (Show Hogwarts Students, Show Voldemort's Army) -->
+    <div id="display-toggle" class="container mt-3 text-center" style="display: none;">
+        <button id="show-hogwarts" class="btn btn-primary me-2">Show Hogwarts Students</button>
+        <button id="show-voldemort" class="btn btn-danger">Show Voldemort's Army</button>
+    </div>
+
+    <!-- Container for Voldemort's Followers -->
+    <div id="voldemort-army-container" class="container mt-5" style="display: none;"></div>
+
+    <!-- Bootstrap JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tYmVzyjx3l7dJ8w1+mYfKIHVDXTY0O7CIQzXCb0rxEi07z6MVmf0HXLI" crossorigin="anonymous"></script>
+    <!-- Custom JavaScript files -->
     <script src="data.js" type="module"></script>
     <script src="scripts.js" type="module"></script>
+
+    <!-- Container for Hogwarts Students -->
     <div id="students-container" class="container mt-5" style="display: none;"></div>
+
+    <!-- Sorting Hat page -->
+    <div id="sorting-hat-page" class="page">
+        <!-- Existing sorting hat content -->
+    </div>
+
+    <!-- Hogwarts Students page -->
+    <div id="hogwarts-students-page" class="page" style="display: none;">
+        <div id="hogwarts-students-container" class="container mt-5"></div>
+    </div>
+
+    <!-- Voldemort's Followers page -->
+    <div id="voldemort-army-page" class="page" style="display: none;">
+        <div id="voldemort-army-container" class="container mt-5"></div>
+    </div>
 </body>
 </html>
