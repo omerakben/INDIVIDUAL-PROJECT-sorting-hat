@@ -15,8 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const sortingContemplation = document.getElementById('sorting-contemplation');
     const finalDecision = document.getElementById('final-decision');
     const sortingControls = document.getElementById('sorting-controls');
-    const sortByNameBtn = document.getElementById('sort-by-name');
-    const sortByHouseBtn = document.getElementById('sort-by-house');
     const sortAnotherBtn = document.getElementById('sort-another-student');
     const showHogwartsBtn = document.getElementById('show-hogwarts');
     const showVoldemortBtn = document.getElementById('show-voldemort');
@@ -52,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // This event listener runs every time the input changes
     nameInput.addEventListener('input', function() {
         // Replace any character that is not a letter or space with an empty string
-        // This uses a regular expression to match non-letter and non-space characters
+        // The regular expression to match non-letter and non-space characters
         this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
     });
 
@@ -111,10 +109,9 @@ document.addEventListener('DOMContentLoaded', () => {
         for (const answer of Object.values(answers)) {
             houseScores[answer]++;
         }
-
         // Return the house with the highest score
         // This uses reduce to find the house with the maximum score
-        return Object.keys(houseScores).reduce((a, b) => houseScores[a] > houseScores[b] ? a : b);
+        return Object.keys(houseScores).reduce((houseA, houseB) => houseScores[houseA] > houseScores[houseB] ? houseA : houseB);
     }
 
     // Display sorting result
@@ -286,9 +283,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Sort Voldemort's Army by name
     function sortVoldemortArmy(criteria) {
-        voldemortArmy.sort((a, b) => {
-            if (a[criteria].toLowerCase() < b[criteria].toLowerCase()) return -1;
-            if (a[criteria].toLowerCase() > b[criteria].toLowerCase()) return 1;
+        voldemortArmy.sort((studentA, studentB) => {
+            if (studentA[criteria].toLowerCase() < studentB[criteria].toLowerCase()) return -1;
+            if (studentA[criteria].toLowerCase() > studentB[criteria].toLowerCase()) return 1;
             return 0;
         });
         displayVoldemortArmy();
@@ -296,9 +293,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Sort Hogwarts students by name or house
     function sortStudents(criteria) {
-        students.sort((a, b) => {
-            if (a[criteria].toLowerCase() < b[criteria].toLowerCase()) return -1;
-            if (a[criteria].toLowerCase() > b[criteria].toLowerCase()) return 1;
+        students.sort((studentA, studentB) => {
+            if (studentA[criteria].toLowerCase() < studentB[criteria].toLowerCase()) return -1;
+            if (studentA[criteria].toLowerCase() > studentB[criteria].toLowerCase()) return 1;
             return 0;
         });
         displayAllStudents();
@@ -384,7 +381,6 @@ document.addEventListener('DOMContentLoaded', () => {
             displayVoldemortArmy();
         }
     }
-
     // Initialize the app by showing the sorting hat page
     showPage('sorting-hat');
 });
