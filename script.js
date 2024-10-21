@@ -1,14 +1,6 @@
 // Import the students data from the data.js file
 import students from './data.js';
 
-// Object to store house descriptions for hints
-const houseHints = {
-    Gryffindor: "Home to the brave and chivalrous. Gryffindors are known for their courage, daring, and determination.",
-    Hufflepuff: "Values hard work, patience, loyalty, and fair play. Hufflepuffs are known for their dedication and kindness.",
-    Ravenclaw: "Where those of wit and learning will always find their kind. Ravenclaws are known for their intelligence and creativity.",
-    Slytherin: "Cunning folk use any means to achieve their ends. Slytherins are known for their ambition, cleverness, and resourcefulness."
-};
-
 // Function to create a card for each student
 function createStudentCard(student) {
     // Create a new div element for the card
@@ -36,9 +28,7 @@ function createStudentCard(student) {
                 <div class="card-body">
                     <h5 class="card-title">${student.name}</h5>
                     <p class="card-text">House: ${student.house}</p>
-                    <button class="btn btn-danger expel-btn">Expel</button>
-                    <button class="btn btn-info hint-btn mt-2">House Hint</button>
-                    <p class="card-text house-hint mt-2" style="display: none;"></p>
+                    <button class="btn btn-danger expel-btn">Expelliarmus</button>
                 </div>
             </div>
         </div>
@@ -51,23 +41,6 @@ function createStudentCard(student) {
         // Remove the card when the expel button is clicked
         card.remove();
     });
-
-    // Find the hint button within the card
-    const hintBtn = card.querySelector('.hint-btn');
-    const hintText = card.querySelector('.house-hint');
-    // Add a click event listener to the hint button
-    hintBtn.addEventListener('click', () => {
-        // Toggle the visibility of the hint text
-        if (hintText.style.display === 'none') {
-            hintText.textContent = houseHints[student.house];
-            hintText.style.display = 'block';
-            hintBtn.textContent = 'Hide Hint';
-        } else {
-            hintText.style.display = 'none';
-            hintBtn.textContent = 'House Hint';
-        }
-    });
-
     // Return the completed card element
     return card;
 }
@@ -87,3 +60,47 @@ function displayStudents() {
 
 // Add an event listener that calls displayStudents when the DOM is fully loaded
 document.addEventListener('DOMContentLoaded', displayStudents);
+
+// Function to show Sorting Ceremony view
+function showSortingCeremony() {
+    console.log("Showing Sorting Ceremony");
+    document.body.classList.remove('voldemort-theme');
+    console.log("Voldemort theme removed:", !document.body.classList.contains('voldemort-theme'));
+    
+    // Show Sorting Ceremony content
+    document.getElementById('sorting-ceremony').style.display = 'block';
+    document.getElementById('voldemort-army').style.display = 'none';
+}
+
+// Function to show Voldemort's Army view
+function showVoldemortArmy() {
+    console.log("Showing Voldemort's Army");
+    document.body.classList.add('voldemort-theme');
+    console.log("Voldemort theme added:", document.body.classList.contains('voldemort-theme'));
+    
+    // Show Voldemort's Army content
+    document.getElementById('sorting-ceremony').style.display = 'none';
+    document.getElementById('voldemort-army').style.display = 'block';
+}
+
+// Wait for the DOM to be fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+    console.log("DOM fully loaded");
+    
+    const sortingCeremonyBtn = document.getElementById('sorting-ceremony-btn');
+    const voldemortArmyBtn = document.getElementById('voldemort-army-btn');
+    
+    if (sortingCeremonyBtn) {
+        sortingCeremonyBtn.addEventListener('click', showSortingCeremony);
+        console.log("Sorting Ceremony button listener added");
+    } else {
+        console.error("Sorting Ceremony button not found");
+    }
+    
+    if (voldemortArmyBtn) {
+        voldemortArmyBtn.addEventListener('click', showVoldemortArmy);
+        console.log("Voldemort's Army button listener added");
+    } else {
+        console.error("Voldemort's Army button not found");
+    }
+});

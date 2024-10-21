@@ -167,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const houseColor = isVoldemortArmy ? '#000000' : houseColors[student.house.toLowerCase()];
         const logo = isVoldemortArmy ? 'images/voldemort-logo.png' : houseLogos[student.house.toLowerCase()];
 
-        const buttonText = isVoldemortArmy ? 'Reparo' : 'Expel';
+        const buttonText = isVoldemortArmy ? 'Reparo' : 'Expelliarmus';
         const buttonClass = isVoldemortArmy ? 'recruit-btn' : 'expel-btn';
 
         // Create card HTML using template literals
@@ -271,7 +271,6 @@ document.addEventListener('DOMContentLoaded', () => {
             <h2 class="text-center mb-4">Voldemort's Army</h2>
             <div class="text-center mb-3">
                 <button id="sort-army-by-name" class="btn btn-secondary me-2">Order by Name</button>
-                <button id="sort-another-student-voldemort" class="btn btn-primary">Sorting Ceremony!</button>
             </div>
             <div class="row"></div>
         `;
@@ -283,7 +282,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Add event listeners for sorting button and Sorting Ceremony
         document.getElementById('sort-army-by-name').addEventListener('click', () => sortVoldemortArmy('name'));
-        document.getElementById('sort-another-student-voldemort').addEventListener('click', resetSorting);
     }
 
     // Sort Voldemort's Army by name
