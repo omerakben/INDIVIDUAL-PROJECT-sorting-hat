@@ -1,5 +1,12 @@
+// Query selectors
+const studentsContainer = document.getElementById('students-container');
+const sortingCeremonyBtn = document.getElementById('sorting-ceremony-btn');
+const voldemortArmyBtn = document.getElementById('voldemort-army-btn');
+const sortingCeremonyElement = document.getElementById('sorting-ceremony');
+const voldemortArmyElement = document.getElementById('voldemort-army');
+
 // Import the students data from the data.js file
-import students from './data.js';
+import { initialStudents } from './data.js';
 
 // Function to create a card for each student
 function createStudentCard(student) {
@@ -36,71 +43,58 @@ function createStudentCard(student) {
 
     // Find the expel button within the card
     const expelBtn = card.querySelector('.expel-btn');
-    // Add a click event listener to the expel button
     expelBtn.addEventListener('click', () => {
         // Remove the card when the expel button is clicked
         card.remove();
     });
-    // Return the completed card element
     return card;
 }
 
 // Function to display all students
 function displayStudents() {
-    // Find the container element where student cards will be appended
-    const container = document.getElementById('students-container');
     // Loop through each student in the imported students array
-    students.forEach(student => {
+    initialStudents.forEach(student => {
         // Create a card for the current student
         const card = createStudentCard(student);
         // Append the card to the container
-        container.appendChild(card);
+        studentsContainer.appendChild(card);
     });
 }
 
 // Add an event listener that calls displayStudents when the DOM is fully loaded
-document.addEventListener('DOMContentLoaded', displayStudents);
+document.addEventListener('DOMContentLoaded', () => {
+    displayStudents();
+    setupThemeToggle();
+});
+
+// Function to setup theme toggle
+function setupThemeToggle() {
+    if (sortingCeremonyBtn) {
+        sortingCeremonyBtn.addEventListener('click', showSortingCeremony);
+    }
+
+    if (voldemortArmyBtn) {
+        voldemortArmyBtn.addEventListener('click', showVoldemortArmy);
+    }
+}
 
 // Function to show Sorting Ceremony view
 function showSortingCeremony() {
-    console.log("Showing Sorting Ceremony");
     document.body.classList.remove('voldemort-theme');
-    console.log("Voldemort theme removed:", !document.body.classList.contains('voldemort-theme'));
-    
-    // Show Sorting Ceremony content
-    document.getElementById('sorting-ceremony').style.display = 'block';
-    document.getElementById('voldemort-army').style.display = 'none';
+    toggleVisibility(sortingCeremonyElement, 'block');
+    toggleVisibility(voldemortArmyElement, 'none');
 }
 
 // Function to show Voldemort's Army view
 function showVoldemortArmy() {
-    console.log("Showing Voldemort's Army");
     document.body.classList.add('voldemort-theme');
-    console.log("Voldemort theme added:", document.body.classList.contains('voldemort-theme'));
-    
-    // Show Voldemort's Army content
-    document.getElementById('sorting-ceremony').style.display = 'none';
-    document.getElementById('voldemort-army').style.display = 'block';
+    toggleVisibility(sortingCeremonyElement, 'none');
+    toggleVisibility(voldemortArmyElement, 'block');
 }
 
-// Wait for the DOM to be fully loaded
-document.addEventListener('DOMContentLoaded', function() {
-    console.log("DOM fully loaded");
-    
-    const sortingCeremonyBtn = document.getElementById('sorting-ceremony-btn');
-    const voldemortArmyBtn = document.getElementById('voldemort-army-btn');
-    
-    if (sortingCeremonyBtn) {
-        sortingCeremonyBtn.addEventListener('click', showSortingCeremony);
-        console.log("Sorting Ceremony button listener added");
-    } else {
-        console.error("Sorting Ceremony button not found");
+// Helper function to toggle visibility
+function toggleVisibility(element, displayStyle) {
+    if (element) {
+        element.style.display = displayStyle;
     }
-    
-    if (voldemortArmyBtn) {
-        voldemortArmyBtn.addEventListener('click', showVoldemortArmy);
-        console.log("Voldemort's Army button listener added");
-    } else {
-        console.error("Voldemort's Army button not found");
-    }
-});
+}

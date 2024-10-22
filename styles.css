@@ -1,77 +1,105 @@
-/* Default theme */
+:root {
+    --hogwarts-overlay: rgba(255, 255, 255, 0.8);
+    --voldemort-overlay: rgba(0, 0, 0, 0.8);
+    --text-color: #333333;
+    --voldemort-text-color: #e0e0e0;
+    --link-color: #0056b3;
+    --voldemort-link-color: #ff9900;
+    --link-hover-color: #003366;
+    --input-bg: rgba(255, 255, 255, 0.9);
+    --voldemort-input-bg: rgba(255, 255, 255, 0.1);
+    --input-border: #ced4da;
+    --voldemort-input-border: #666;
+    --input-text: #495057;
+    
+    /*Voldemort's Army */
+    --voldemort-card-bg: rgba(0, 0, 0, 0.4);
+    --voldemort-card-text: #fff;
+    --voldemort-card-title: #ff0000;
+    --voldemort-recruit-btn-bg: #312c50;
+    --voldemort-recruit-btn-border: #2c5039;
+    --voldemort-recruit-btn-hover-bg: #34495e;
+    --voldemort-recruit-btn-hover-border: #34495e;
+
+    /* Inline colors */
+    --card-shadow: rgba(0, 0, 0, 0.1);
+    --button-shadow: rgba(0, 0, 0, 0.2);
+    --text-shadow: rgba(255, 255, 255, 0.5);
+    --card-title-color: #000;
+    --card-text-color: #222;
+}
+
 body {
     background-image: url('images/hogwarts-logo.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
-    color: #333333; /* Dark gray text for default theme */
+    color: var(--text-color);
     transition: background-image 0.5s ease-in-out;
 }
 
 body::before {
     content: '';
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(255, 255, 255, 0.8); /* Lighter overlay for default theme */
+    inset: 0;
+    background-color: var(--hogwarts-overlay);
     z-index: -1;
 }
 
 /* Voldemort theme */
 body.voldemort-theme {
     background-image: url('images/voldemort-army-logo.png');
-    color: #e0e0e0; /* Light gray text for Voldemort theme */
+    color: var(--voldemort-text-color);
 }
 
 body.voldemort-theme::before {
-    background-color: rgba(0, 0, 0, 0.8); /* Darker overlay for Voldemort theme */
+    background-color: var(--voldemort-overlay);
 }
 
 /* Remove text shadows */
-body, body.voldemort-theme,
-body h1, body h2, body h3, body h4, body h5, body h6,
-body p, body label, body .form-control,
-body.voldemort-theme h1, body.voldemort-theme h2, body.voldemort-theme h3,
-body.voldemort-theme h4, body.voldemort-theme h5, body.voldemort-theme h6,
-body.voldemort-theme p, body.voldemort-theme label, body.voldemort-theme .form-control {
+body, body.voldemort-theme {
     text-shadow: none;
+}
+
+body *, body.voldemort-theme * {
+    text-shadow: inherit;
 }
 
 /* Adjust link colors for both themes */
 a {
-    color: #0056b3; /* Dark blue for default theme */
+    color: var(--link-color);
 }
 
 body.voldemort-theme a {
-    color: #ff9900; /* Orange for Voldemort theme */
+    color: var(--voldemort-link-color);
 }
 
 a:hover, body.voldemort-theme a:hover {
-    color: #003366; /* Darker blue/orange on hover */
+    color: var(--link-hover-color);
 }
 
 /* Ensure form inputs are readable in both themes */
 .form-control {
-    background-color: rgba(255, 255, 255, 0.9);
-    border: 1px solid #ced4da;
-    color: #495057;
+    background-color: var(--input-bg);
+    border: 1px solid var(--input-border);
+    color: var(--input-text);
 }
 
 body.voldemort-theme .form-control {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-color: #666;
-    color: #e0e0e0;
+    background-color: var(--voldemort-input-bg);
+    border-color: var(--voldemort-input-border);
+    color: var(--voldemort-text-color);
 }
 
 /* Style for house logos */
 .house-logo {
-    max-width: 200px;
+    width: 400px;  
+    height: 400px; 
+    object-fit: contain;
     margin: 20px auto;
     display: none;
-    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.3)); /* Adds a subtle shadow */
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.3));
 }
 
 /* Center align sorting result */
@@ -82,7 +110,7 @@ body.voldemort-theme .form-control {
 /* Styles for student cards */
 .card {
     margin-bottom: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px var(--card-shadow);
     height: 100%;
     transition: transform 0.3s ease-in-out;
 }
@@ -95,21 +123,21 @@ body.voldemort-theme .form-control {
 /* Style for card titles */
 .card-title {
     font-weight: bold;
-    color: #000;
-    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+    color: var(--card-title-color);
+    text-shadow: 1px 1px 1px var(--text-shadow);
 }
 
 /* Style for card text */
 .card-text {
-    color: #222;
-    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+    color: var(--card-text-color);
+    text-shadow: 1px 1px 1px var(--text-shadow);
 }
 
 /* Style for expel button */
 .expel-btn {
     margin-top: 10px;
     align-self: flex-start;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 4px var(--button-shadow);
 }
 
 /* Style for house crests */
@@ -178,22 +206,22 @@ body.voldemort-theme .form-control {
 
 /* Existing Voldemort theme styles */
 #voldemort-army-container .card {
-    background-color: rgba(0, 0, 0, 0.4) !important;
-    color: #fff;
+    background-color: var(--voldemort-card-bg) !important;
+    color: var(--voldemort-card-text);
 }
 
 #voldemort-army-container .card-title,
 #voldemort-army-container .card-text {
-    color: #ff0000;
+    color: var(--voldemort-card-title);
     text-shadow: none;
 }
 
 #voldemort-army-container .recruit-btn {
-    background-color: #312c50;
-    border-color: #2c5039;
+    background-color: var(--voldemort-recruit-btn-bg);
+    border-color: var(--voldemort-recruit-btn-border);
 }
 
 #voldemort-army-container .recruit-btn:hover {
-    background-color: #34495e;
-    border-color: #34495e;
+    background-color: var(--voldemort-recruit-btn-hover-bg);
+    border-color: var(--voldemort-recruit-btn-hover-border);
 }

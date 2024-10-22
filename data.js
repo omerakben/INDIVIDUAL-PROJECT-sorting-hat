@@ -1,3 +1,4 @@
+// Define the initial students array
 const initialStudents = [
     { name: "Harry Potter", house: "Gryffindor" },
     { name: "Hermione Granger", house: "Gryffindor" },
@@ -11,6 +12,7 @@ const initialStudents = [
     { name: "Hannah Abbott", house: "Hufflepuff" }
 ];
 
+// Define the initial Voldemort's army array
 const initialVoldemortArmy = [
     { name: "Bellatrix Lestrange", house: "Slytherin" },
     { name: "Lucius Malfoy", house: "Slytherin" },
@@ -19,5 +21,5 @@ const initialVoldemortArmy = [
     { name: "Antonin Dolohov", house: "Slytherin" }
 ];
 
-// Export the initial students and Voldemort's army arrays for use in other modules
+// Export the initial students and Voldemort's army arrays as an object
 export { initialStudents, initialVoldemortArmy };
