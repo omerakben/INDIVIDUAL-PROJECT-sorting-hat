@@ -5,7 +5,7 @@ This project brings the Hogwarts sorting hat to life! It's an interactive web ap
 
 ## Project Links
 - [Project Board](https://github.com/omerakben/INDIVIDUAL-PROJECT-sorting-hat.git)
-- [Deployed Project](#) (Add link when available)
+- [Deployed Project](https://sage-cuchufli-a4779a.netlify.app/)
 
 ## User Story
 As a Hogwarts administrator, I need a digital sorting hat to efficiently assign new students to houses and manage the student roster. This application provides a quick and fair way to distribute students among the four houses while allowing for easy management of the student list, including the ability to expel students when necessary.
