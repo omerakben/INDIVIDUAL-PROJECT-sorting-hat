@@ -1,57 +1,110 @@
 # Sorting Hat
 
-## Goals
-The goal of this project is to test your knowledge and to have a FUN time stretching yourself on your FIRST independent application that will become a part of your portfolio.
+## Screenshots
+![Sorting Hat Introduction](./images/SS-sorting-hat-project.png)
+*Figure 1: The Sorting Hat introduces itself and starts the sorting process.*
 
-Focus on MVP. Do not spend a ton of time styling initially. Hit functionality first and then spend time on the styling of the project using bootstrap.
+![Sorted Students](./images/SS-hogwarts.png)
+*Figure 2: Display of sorted students with their assigned houses.*
 
-- READ THROUGH ALL OF THE INFORMATION BELOW before planning how you will tackle the project.
-- Check the Issue Tickets to organize your process. You will have all week in class to work on this in class. 
-- PLEASE submit questions in help tickets if you need help. We will guide you to the resources that are available to you.
-- When done, tell an instructor. Everyone will present how far they got AND their favorite piece of code that they wrote to an instructor.
-- MOST OF ALL HAVE FUN!!!!!
-
-## Instructions
-You are in charge of bringing the Hogwarts sorting hat to life! 
-
-This is what the finished app should have:
-- To start off with, you will use a [bootstrap card](https://getbootstrap.com/docs/5.0/components/card/#header-and-footer) to have your sorting hat introduce itself and start the sorting process (by clicking on a button). The form should not be on the DOM until the button click happens.
-
-- A [bootstrap form](https://getbootstrap.com/docs/5.0/forms/overview/) will then appear to fill in the student's name and a button to sort. This should then assign the student to a random house (Gryffindor, Hufflepuff, Ravenclaw, or Slytherin). 
-
-- On sorting a student, the form should clear and a [bootstrap card](https://getbootstrap.com/docs/5.0/components/card/) with the student's name and a random house assignment should print below the form. 
-
-- You should also be able to expel a student after they have been sorted, which should remove their card from the student array and move them to Moldy Voldy's Army.
-
-In the end, your app will look something like: 
-
-![screencapture-drt-sorting-netlify-app-2022-04-23-14_28_47](https://user-images.githubusercontent.com/29741570/164943525-d20275be-c312-42d1-9730-0c1fd3fd9834.png)
+![Voldemort's Army](./images/SS-voldemort.png)
+*Figure 3: Expelled students in Voldemort's Army.*
 
 
-<!-- [See Demo](https://drt-sortinghat.netlify.app/)
- -->
-## Technical Requirements
-- You MUST plan your project and highly suggest using issue tickets. There are a few that have been provided for you to use already. Continue to add to these so you know what work you need to complete. 
-- You MAY use the `renderToDom()` function that we worked on in class, but you also need to be able to explain it if you use it
-- You have to create a data structure for your project. Review all the elements that need to be on the DOM and create the structure accordingly
-- You must use [Boostrap](https://getbootstrap.com/) to style your page components
-- You must use a loop other than a `for loop`
-- Your JS file should be comprised of functions, no actions should happen in your code outside of a function except for your initial `startApp()` function
-- Your code MUST be YOUR code. Do not copy and paste code into your project. Type every bit of it out
-- Your HTML and JS should all have proper indentation
-- Helpful Form: An error message shows if a user tries to sort a student without filling out the form
-- Voldermort's Army: Create a separate container of cards that hold the cards for students that have been expelled. These should be styled differently from Hogwarts students.
-- Add filter buttons to filter the non-expelled students by house
+## Overview
+This project brings the Hogwarts sorting hat to life! It's an interactive web application built using HTML, CSS, JavaScript, and Bootstrap. Users can input their name and be sorted into one of the four Hogwarts houses (Gryffindor, Hufflepuff, Ravenclaw,Slytherin) either randomly or through a quiz. The application also features student management, including the ability to expel(Expelliarmus) students to Voldemort's Army and recruit(Reparo) them back.
 
-## DEFINITION OF DONE
-Once you have completed all the technical requirments, you should complete the following:
-- [README Requirements](https://github.com/orgs/nss-evening-web-development/discussions/13)
-- **RECOMMENDED** Loom Video: [Sign up for Loom](https://www.loom.com/signup) and record a video of you walking through your app 
+## Project Links
+- [Project Board](https://github.com/omerakben/INDIVIDUAL-PROJECT-sorting-hat.git)
+- [Deployed Project](https://sage-cuchufli-a4779a.netlify.app/)
 
-## Expel Button Hints
-Think of a way you can expel students without just hiding those divs on the page. This would mean when the button is clicked you modify the array of students and pass the new array into your `renderToDom()` function.  Double hint - put a unique id in the student object when you create them.
+## User Story
+As a Hogwarts administrator, I need a digital sorting hat to efficiently assign new students to houses and manage the student roster. This application provides a quick and fair way to distribute students among the four houses while allowing for easy management of the student list, including the ability to expel students when necessary.
 
-## Optional Bonus
-- House Colors: The color of the student's card changes depending on which house they were sorted.
-- Card Sorting/Ordering: Sort the student cards by some criteria (i.e. alphabetically by name, by house)
+## Features
+- Interactive sorting hat introduction
+- Student name input with validation (letters only)
+- Random house assignment or sorting quiz option
+- Display of sorted students in cards with house crests
+- Ability to expel students to Voldemort's Army
+- Ability to recruit students back from Voldemort's Army
+- Filter students by house
+- Sort students alphabetically or by house
+- Responsive design for various screen sizes
+- Theme toggle between Hogwarts and Voldemort's Army views
 
+## Technical Details
+- Modular JS structure
+- Management for student data
+- Dynamic DOM manipulation
+- Event delegation for efficient event handling
+- CSS variables for easy theming
+- Responsive design using Bootstrap and custom CSS
+
+## Key Learnings
+- Advanced JavaScript methods and DOM manipulation
+- JS - ES6 modules
+- State management in vanilla JS
+- Responsive design with Bootstrap 5 and custom CSS
+- Event handling and dynamic content generation
+
+## Challenges and Solutions
+1. Background Image Handling:
+   - Challenge: Adding a grayscale background image without affecting other elements.
+   - Solution: Used `body::before` pseudo-element to create an overlay, allowing for a fixed background that doesn't interfere with scrolling.
+
+2. Quiz Logic:
+   - Challenge: Implementing sorting system when quiz answers are evenly distributed.
+   - Solution: Created a scoring system that allows for random selection among tied houses, ensuring fairness in sorting.
+
+3. Sorting with Different Themes:
+   - Challenge: Implementing distinct visual themes for Hogwarts and Voldemort's Army.
+   - Solution: Created separate CSS classes for each theme and toggled them dynamically using JavaScript. Used different background images and color schemes to differentiate between Hogwarts and Voldemort's Army views.
+
+4. Displaying based on House or Army:
+   - Challenge: Efficiently organizing and displaying students based on their house or allegiance to Voldemort.
+   - Solution: Implemented separate display functions for Hogwarts students and Voldemort's Army. Used conditional rendering to show appropriate logos, colors, and buttons based on the student's affiliation.
+
+5. Updating Displays:
+   - Challenge: Keeping the display up-to-date after expelling or recruiting students.
+   - Solution: Created an `updateDisplay` function that refreshes both Hogwarts and Voldemort's Army containers whenever a student's status changes. This ensures that the UI always reflects the current state of student affiliations.
+
+6. Reset Sorting:
+   - Challenge: Allowing users to start a new sorting process without refreshing the page.
+   - Solution: Implemented a `resetSorting` function that clears input fields, resets state variables, and returns the user to the initial sorting screen. This function also handles resetting elements and scroll position for a seamless experience.
+
+7. Show Page Logic:
+   - Challenge: Managing the visibility of different sections (sorting hat, Hogwarts students, Voldemort's Army) based on user interactions.
+   - Solution: Developed a `showPage` function that handles the display logic for different pages. This function toggles visibility of relevant elements, updates the current page state, and triggers appropriate display functions based on the selected page.
+
+8. Maintaining State:
+   - Challenge: Keeping track of students' data consistency across different views.
+   - Solution: Utilized a central `state` object to store and manage student data, including separate arrays for Hogwarts students and Voldemort's Army. This approach allowed for easy updates and consistent data representation throughout the application.
+
+9. Dynamic Card Creation:
+   - Challenge: Creating visually appealing and interactive student cards that reflect their house or allegiance.
+   - Solution: Implemented a flexible `createStudentCard` function that generates HTML for student cards, incorporating house-specific colors, logos, and interactive buttons. This function adapts its output based on whether the student belongs to Hogwarts or Voldemort's Army.
+
+10. Sorting and Filtering:
+    - Challenge: Allowing users to sort and organize students within their respective groups.
+    - Solution: Added sorting functionality for both Hogwarts students (by name and house) and Voldemort's Army (by name). Implemented event listeners on sorting buttons to trigger the appropriate sorting functions and update the display accordingly.
+
+## Future Improvements
+- Implement local storage data between sessions
+- Add animations for sorting and expelling students
+- Create a more detailed student profile system
+- Implement a house points system
+
+## Resources
+- [Bootstrap Documentation](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
+- [JavaScript Array Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
+- [CSS Variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties)
+
+## Contributors
+- [Omer Ozzy Akben](https://github.com/omerakben)
+
+## Contact
+- [LinkedIn](https://www.linkedin.com/in/omerakben/)
+
+## Demo
+[Loom Video Walkthrough](#) (Add link to your Loom video, no more than 1 minute long)`
